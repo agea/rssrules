@@ -12,13 +12,28 @@
   <body>
     <h1>RSS Rules</h1>
     <div id="description">
-	Enter a set of rules to remove from your feeds the entries you are not interested in
-    <strong>Clean up your feeds!</strong>
+	Remove from your subscriptions the items you don't want to read
+    <strong>Filter your RSS feeds</strong>
     </div>
     <div id="citation">
 		<p><em>Everyone spoke of an information overload, but what there was in fact 
 		was a non-information overload</em></p>
 		<p><strong>Richard Saul Wurman</strong>, <em>What-If, Could be </em>(Philadelphia, 1976)</p>
+    </div>
+    <div id="rules">
+        <div class="field">
+            <label>Enter the url of your feed</label>
+            <input name="u" type="url" placeholder="http://example.com/rss.xml"/>
+        </div>
+        <div class="field">
+            <label>Add the rules</label>
+            <p class="discreet">Feed entries matching these rules will be removed</p>
+            <div id="rulesButtons">
+                <input id="tc" type="submit" value="Title must contain"/>
+                <input id="ntc" type="submit" value="Title must not contain"/>
+            </div>
+        </div>
+        
     </div>
   </body>
 </html>

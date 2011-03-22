@@ -6,7 +6,9 @@
     <title>RSS Rules</title>
     <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
     <script type="text/javascript" src="js/jsuri-1.1.0.min.js"></script>
-	<link href="css/screen.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/tzSelect/jquery.tzSelect.js"></script>
+    <link href="js/tzSelect/jquery.tzSelect.css" rel="stylesheet" type="text/css" />
+    <link href="css/screen.css" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
@@ -22,16 +24,35 @@
     </div>
     <div id="rules">
         <div class="field">
-            <label>Enter the url of your feed</label>
+            <label>Enter the url of the feed you want to filter</label>
             <input name="u" type="url" placeholder="http://example.com/rss.xml"/>
         </div>
         <div class="field">
             <label>Add the rules</label>
             <p class="discreet">Feed entries matching these rules will be removed</p>
-            <div id="rulesButtons">
-                <input id="tc" type="submit" value="Title must contain"/>
-                <input id="ntc" type="submit" value="Title must not contain"/>
-            </div>
+            
+            <select class="regularSelect" id="part">
+            <option value="0" selected="selected" >Post</option>
+            <option value="1">Title</option>
+            <option value="2">Body</option>
+            <option value="3">Tag</option>
+            <option value="4">Author</option>
+            </select>
+        
+        <select class="regularSelect" id="must">
+            <option value="0" selected="selected" >must</option>
+            <option value="1">must not</option>
+        </select>
+
+        <select class="regularSelect" id="rule">
+            <option value="0" selected="selected" >contain</option>
+            <option value="1">start with</option>
+            <option value="2">end with</option>
+            <option value="3">match pattern</option>
+        </select>
+        
+        <input type="text" id="text" placeholder="your text"/>
+        
         </div>
         
     </div>

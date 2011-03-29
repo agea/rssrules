@@ -33,6 +33,7 @@ public class RssrulesServlet extends HttpServlet {
 		try {
 
 			URL url = new URL(req.getParameter("u"));
+			String logic = req.getParameter("l");
 			String[] titleContains = req.getParameterValues("tc");
 			String[] notTitleContains = req.getParameterValues("ntc");
 			String[] titleStarts = req.getParameterValues("ts");

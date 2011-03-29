@@ -7,6 +7,7 @@
     <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
     <script type="text/javascript" src="js/jsuri-1.1.0.min.js"></script>
     <script type="text/javascript" src="js/tzSelect/jquery.tzSelect.js"></script>
+    <script type="text/javascript" src="js/rssrules.js"></script>
     <link href="js/tzSelect/jquery.tzSelect.css" rel="stylesheet" type="text/css" />
     <link href="css/screen.css" rel="stylesheet" type="text/css" />
   </head>
@@ -32,8 +33,8 @@
             
             <span class="logic">
                 If a feed item matches <select class="regularSelect" id="logic">
-            <option value="Any" selected="selected" >Any</option>
-            <option value="All">All</option>
+            <option value="or" selected="selected" >Any</option>
+            <option value="and">All</option>
             </select> of these rules will be removed:</span>
             
             <span class="part">
@@ -69,29 +70,8 @@
         <ul id="added"></ul>
        <div class="field" id="url">
        <label>Your filtered feed URL:</label>
-       <a href=""></a>
+        <a id="finalurl" href="#">#</a>
        </div>
     </div>
-    <script type="text/javascript">
-    $(document).ready(function(){
-
-    	$('#add').click(function(){
-            var part = $('#part').val();
-            var must = $('#must').val();
-            var rule = $('#rule').val();
-            var text = $('#text').val();
-            var param='';
-            if (must!='must'){
-                param='n'
-            };
-            param+=part.substring(0,1).toLowerCase();
-            param+=rule.substring(0,1).toLowerCase();
-
-            
-    		$('#added').append('<li param="'+param+'" value="'+text+'">'+part+' '+must+' '+rule+' "'+text+'"</li>');
-            });
-
-    });    
-    </script>
   </body>
 </html>

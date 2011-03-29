@@ -25,36 +25,73 @@
     <div id="rules">
         <div class="field">
             <label>Enter the url of the feed you want to filter</label>
-            <input name="u" type="url" placeholder="http://example.com/rss.xml"/>
+            <input name="u" id="rssurl" type="url" placeholder="http://example.com/feed.rss"/>
         </div>
         <div class="field">
             <label>Add the rules</label>
-            <p class="discreet">Feed entries matching these rules will be removed</p>
             
+            <span class="logic">
+                If a feed item matches <select class="regularSelect" id="logic">
+            <option value="Any" selected="selected" >Any</option>
+            <option value="All">All</option>
+            </select> of these rules will be removed:</span>
+            
+            <span class="part">
             <select class="regularSelect" id="part">
-            <option value="0" selected="selected" >Post</option>
-            <option value="1">Title</option>
-            <option value="2">Body</option>
-            <option value="3">Tag</option>
-            <option value="4">Author</option>
+            <option value="Post" selected="selected" >Post</option>
+            <option value="Title">Title</option>
+            <option value="Body">Body</option>
+            <option value="Category">Category</option>
+            <option value="Author">Author</option>
             </select>
+            </span>
         
+        <span class="must">
         <select class="regularSelect" id="must">
-            <option value="0" selected="selected" >must</option>
-            <option value="1">must not</option>
+            <option value="must" selected="selected" >must</option>
+            <option value="must not">must not</option>
         </select>
+        </span>
 
+    <span class="rule">
         <select class="regularSelect" id="rule">
-            <option value="0" selected="selected" >contain</option>
-            <option value="1">start with</option>
-            <option value="2">end with</option>
-            <option value="3">match pattern</option>
+            <option value="contain" selected="selected" >contain</option>
+            <option value="start with">start with</option>
+            <option value="end with">end with</option>
+            <option value="match pattern">match pattern</option>
         </select>
+        </span>
         
         <input type="text" id="text" placeholder="your text"/>
+        <input type="button" id="add" value="+"/>
         
         </div>
-        
+        <ul id="added"></ul>
+       <div class="field" id="url">
+       <label>Your filtered feed URL:</label>
+       <a href=""></a>
+       </div>
     </div>
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+    	$('#add').click(function(){
+            var part = $('#part').val();
+            var must = $('#must').val();
+            var rule = $('#rule').val();
+            var text = $('#text').val();
+            var param='';
+            if (must!='must'){
+                param='n'
+            };
+            param+=part.substring(0,1).toLowerCase();
+            param+=rule.substring(0,1).toLowerCase();
+
+            
+    		$('#added').append('<li param="'+param+'" value="'+text+'">'+part+' '+must+' '+rule+' "'+text+'"</li>');
+            });
+
+    });    
+    </script>
   </body>
 </html>

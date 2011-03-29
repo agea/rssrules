@@ -142,8 +142,8 @@ h1 {
 	margin-top: 110px;
 	padding: 2em;
 	border-radius: 1em;
-    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 #rules label {
@@ -160,10 +160,53 @@ h1 {
 .field input {
 	border: 0;
 	border-radius: 1em;
-    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.5);
 	-webkit-box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.5);
 	padding: 1em;
-	width: 782px;
+	width: 780px;
+}
+
+.logic {
+	display: block;
+	padding-bottom: 30px;
+}
+
+.logic .tzSelect {
+	position: relative;
+	top: 16px;
+}
+
+.rule .tzSelect {
+	min-width: 150px;
+}
+
+.must .tzSelect {
+	min-width: 110px;
+}
+
+#text {
+	width: 300px;
+	position: relative;
+	top: -18px;
+	margin-left: 4px;
+}
+
+#add {
+	position: relative;
+	top: -14px;
+	width: 50px;
+	border-radius: 25px;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	background: -moz-linear-gradient(#0d0, #080);
+	font-size: 25px;
+	color: #050;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+	padding: 0;
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-bottom: 4px;
+	margin-left: 6px;
 }
 
 /*      Tablet Layout: 768px.

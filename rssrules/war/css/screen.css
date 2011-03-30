@@ -209,6 +209,37 @@ h1 {
 	margin-left: 6px;
 }
 
+.remove {
+	border: 0;
+	position: relative;
+	top: -4px;
+	width: 32px;
+	border-radius: 25px;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	background: -moz-linear-gradient(#d00, #800);
+	font-size: 15px;
+	color: #500;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+	padding: 0;
+	padding-left: 1px;
+	padding-right: 1px;
+	padding-bottom: 2px;
+	margin-left: 4px;
+	margin-right: 10px;
+}
+
+.urlparam {
+	margin-bottom: .6em;
+}
+
+#finalurl {
+	color: white;
+	font-size: 90%;
+	text-decoration: none;
+	font-family: monospace;
+}
+
 /*      Tablet Layout: 768px.
         Gutters: 24px.
         Outer margins: 28px.

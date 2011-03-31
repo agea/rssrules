@@ -6,7 +6,9 @@ import java.io.StringWriter;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Set;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +27,7 @@ import com.sun.syndication.io.XmlReader;
 @SuppressWarnings("serial")
 public class RssrulesServlet extends HttpServlet {
 
+	@SuppressWarnings("rawtypes")
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		ArrayList<Exception> errors = new ArrayList<Exception>();
@@ -33,7 +36,11 @@ public class RssrulesServlet extends HttpServlet {
 		try {
 
 			URL url = new URL(req.getParameter("u"));
-			String logic = req.getParameter("l");
+			boolean and = req.getParameter("l").equals("and");
+
+			HashMap<String, String> rules = new HashMap<String, String>();
+			Set s = req.getParameterMap().entrySet();
+
 			String[] titleContains = req.getParameterValues("tc");
 			String[] notTitleContains = req.getParameterValues("ntc");
 			String[] titleStarts = req.getParameterValues("ts");

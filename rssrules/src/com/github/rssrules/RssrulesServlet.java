@@ -45,6 +45,7 @@ public class RssrulesServlet extends HttpServlet {
 
 			while (i.hasNext()) {
 				SyndEntry post = (SyndEntry) i.next();
+				boolean remove = true;
 				for (Entry<String, String[]> entry : (Set<Entry<String, String[]>>) req
 						.getParameterMap().entrySet()) {
 					String k = entry.getKey();
@@ -52,6 +53,7 @@ public class RssrulesServlet extends HttpServlet {
 						continue;
 					}
 					String[] vs = entry.getValue();
+					Boolean breakFor = false;
 					for (String v : vs) {
 						boolean neg = k.startsWith("n");
 						if (neg) {
@@ -79,35 +81,56 @@ public class RssrulesServlet extends HttpServlet {
 									.getValue() };
 						}
 						Boolean m = false;
-						String r = k.substring(2, 3);
+						String r = k.substring(1, 2);
 						if (r.equals("c")) {
 							for (String tbvs : tbv) {
 								m = tbvs.toLowerCase()
 										.contains(v.toLowerCase()) || m;
 							}
-						}
-						if (r.equals("s")) {
+						} else if (r.equals("s")) {
 							for (String tbvs : tbv) {
 								m = tbvs.toLowerCase().startsWith(
 										v.toLowerCase())
 										|| m;
 							}
-						}
-						if (r.equals("e")) {
+						} else if (r.equals("e")) {
 							for (String tbvs : tbv) {
 								m = tbvs.toLowerCase()
 										.endsWith(v.toLowerCase()) || m;
 							}
-						}
-						if (r.equals("m")) {
+						} else if (r.equals("m")) {
 							Pattern p = Pattern.compile(v);
 							for (String tbvs : tbv) {
 								m = p.matcher(tbvs).matches() || m;
 							}
+						} else {
+							throw new Exception("Unknown rule: " + r
+									+ ", in param: " + k);
 						}
-						// if !and and !neg if m remove and break
-					}
 
+						if (m != neg) {
+							if (!and) {
+								i.remove();
+								breakFor = true;
+								break;
+							} else {
+
+							}
+						} else {
+							if (and) {
+								remove = false;
+								breakFor = true;
+								break;
+							}
+						}
+
+					}
+					if (breakFor) {
+						break;
+					}
+				}
+				if (and && remove) {
+					i.remove();
 				}
 			}
 

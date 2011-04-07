@@ -80,6 +80,18 @@ body {
 	-webkit-tap-highlight-color: rgb(255, 255, 158);
 }
 
+#rules, 
+field .input, 
+#add, 
+.remove, 
+.tzSelect .selectBox,
+.tzSelect .selectBox:hover,.tzSelect .selectBox.expanded,
+.tzSelect .dropDown
+{
+	behavior: url(/js/PIE.htc);
+}
+
+
 /*      Default Layout: 992px. 
         Gutters: 24px.
         Outer margins: 48px.
@@ -142,8 +154,10 @@ h1 {
 	margin-top: 110px;
 	padding: 2em;
 	border-radius: 1em;
-	box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5);
-	-webkit-box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5);
+	background:#333;
+	box-shadow:  4px 4px 8px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 #rules label {
@@ -158,9 +172,13 @@ h1 {
 }
 
 .field input {
+	background:white;
 	border: 0;
-	border-radius: 1em;
-	box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 1em;
+	-moz-border-radius: 1em;
+	-webkit-border-radius: 1em;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.5);
 	-webkit-box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.5);
 	padding: 1em;
 	width: 780px;
@@ -198,7 +216,10 @@ h1 {
 	border-radius: 25px;
 	box-shadow: none;
 	-webkit-box-shadow: none;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#0d0), to(#080)
+		);
 	background: -moz-linear-gradient(#0d0, #080);
+	background: linear-gradient(#0d0, #080);
 	font-size: 25px;
 	color: #050;
 	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
@@ -217,7 +238,10 @@ h1 {
 	border-radius: 25px;
 	box-shadow: none;
 	-webkit-box-shadow: none;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#d00), to(#800)
+		);
 	background: -moz-linear-gradient(#d00, #800);
+	background: linear-gradient(#d00, #800);
 	font-size: 15px;
 	color: #500;
 	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
@@ -268,6 +292,9 @@ px      68    160    252    344    436    528    620    712    */
 	.field input {
 		width: 592px;
 	}
+	#text {
+		width: 120px;
+	}
 }
 
 /*      Wide Mobile Layout: 480px.
@@ -300,9 +327,26 @@ px      68    160    252    344    436    */
 	}
 	#rules {
 		margin-top: 25px;
+		overflow: auto;
 	}
 	.field input {
 		width: 316px;
+	}
+	#text {
+		width: 306px;
+		position: relative;
+		top: -4px;
+		margin-left: 4px;
+		margin-bottom: 28px;
+	}
+	#add {
+		margin-left: 4px;
+		width: 324px;
+	}
+	.tzSelect {
+		width: 324px !important;
+		margin-top: 0px;
+		margin-bottom: 24px;
 	}
 }
 
@@ -340,5 +384,21 @@ px      68    160    252    */
 	}
 	.field input {
 		width: 162px;
+	}
+	#text {
+		width: 162px;
+		position: relative;
+		top: -4px;
+		margin-left: 4px;
+		margin-bottom: 28px;
+	}
+	#add {
+		margin-left: 4px;
+		width: 184px;
+	}
+	.tzSelect {
+		width: 184px !important;
+		margin-top: 0px;
+		margin-bottom: 24px;
 	}
 }

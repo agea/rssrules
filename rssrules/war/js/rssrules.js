@@ -1,5 +1,5 @@
 function updateURL(){
-	var url = new jsUri('https://rssrules.appspot.com/rss');
+	var url = new jsUri(window.location.href.substring(0,window.location.href.lastIndexOf('/'))+'/rss');
 	
 	url.addQueryParam('u',encodeURIComponent($('#rssurl').val()));
 	url.addQueryParam('l',$('#logic').val());

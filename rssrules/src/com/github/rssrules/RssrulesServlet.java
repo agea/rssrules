@@ -48,16 +48,17 @@ public class RssrulesServlet extends HttpServlet {
 				boolean remove = true;
 				for (Entry<String, String[]> entry : (Set<Entry<String, String[]>>) req
 						.getParameterMap().entrySet()) {
-					String k = entry.getKey();
-					if (k.equals("u") || k.equals("l")) {
+					String ork = entry.getKey();
+					if (ork.equals("u") || ork.equals("l")) {
 						continue;
 					}
 					String[] vs = entry.getValue();
 					Boolean breakFor = false;
 					for (String v : vs) {
-						boolean neg = k.startsWith("n");
+						String k = ork;
+						boolean neg = ork.startsWith("n");
 						if (neg) {
-							k = k.substring(1);
+							k = ork.substring(1);
 						}
 						String[] tbv = new String[0];
 						String part = k.substring(0, 1);
@@ -65,7 +66,8 @@ public class RssrulesServlet extends HttpServlet {
 							tbv = new String[] { post.getCategories()
 									.toString()
 									+ post.getTitle()
-									+ post.getDescription() + post.getAuthor() };
+									+ post.getDescription().getValue()
+									+ post.getAuthor() };
 						} else if (part.equals("t")) {
 							tbv = new String[] { post.getTitle() };
 						} else if (part.equals("c")) {

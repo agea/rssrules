@@ -1,0 +1,24 @@
+#rules{
+ border:0;
+ margin-top: 120px;
+}
+
+.tzSelect{
+    display:inline-block;
+    margin-top: -24px ! important;
+}
+
+#rssurl,
+#text{
+border: 2px solid black;
+}
+
+
+#add{
+    top:-16px;
+}
+
+#text {
+    width: 200px;
+    top:-16px;
+}
